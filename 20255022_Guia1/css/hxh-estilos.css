@@ -1,0 +1,75 @@
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    color: #e0e0e0;
+}
+#contenedor-principal {
+    width: 75%;
+    margin: 0 auto;
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 40px;
+    border: 5px solid #ffffff;
+}
+#titulo-principal {
+    color: #ffaa00;
+    text-align: center;
+    text-decoration: underline;
+}
+.imagen-destacada {
+    display: block;
+    margin: 0 auto;
+    max-width: 450px;
+    height: auto;
+}
+.subtitulo {
+    color: #ffffff;
+    border-bottom: 2px solid #555;
+    padding-bottom: 5px;
+}
+.parrafo-texto {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 10px 0;
+}
+.seccion-personajes {
+    background-color: #333333;
+    padding: 15px;
+    margin-top: 20px;
+    border: 5px solid #ffaa00;
+    border-radius: 40px;
+}
+.seccion-ryodan {
+    background-color: #382222;
+    padding: 15px;
+    margin-top: 20px;
+    border: 5px solid #ff3333;
+    border-radius: 40px;
+}
+.caja-personaje {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.img-personaje {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ffaa00;
+    border-radius: 100px;
+}
+.img-ryodan {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    border-radius: 8px;
+    border: 2px solid #ff3333;
+}
+#gon { color: #00cc66; font-weight: bold; }
+#killua { color: #99ccff; font-weight: bold; }
+#kurapika { color: #f3e821c0; font-weight: bold; }
+#feitan { color: #990000; font-weight: bold; }
+#shizuku { color: #3399ff; font-weight: bold; }
