@@ -1,0 +1,176 @@
+/* =========================================================
+   LAYOUT GLOBAL CON CSS GRID
+   Columna central limitada al ancho de página, con márgenes
+   laterales flexibles. Cada sección ocupa un área con nombre.
+   ========================================================= */
+.page {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns:
+        minmax(20px, 1fr)
+        minmax(0, var(--page-max-width))
+        minmax(20px, 1fr);
+    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-areas:
+        ".      header  ."
+        ".      hero    ."
+        ".      pillars ."
+        ".      quote   ."
+        "footer footer  footer";
+    row-gap: 0;
+}
+
+/* ---------- HEADER (grid de 2 columnas) ---------- */
+.site-header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 32px 0;
+}
+
+/* Flexbox solo para alinear los enlaces del menú */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ---------- HERO (grid 2 columnas: texto + datos) ---------- */
+.hero {
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: center;
+    padding: 72px 0 80px;
+}
+
+.hero-text .subhead {
+    margin: 24px 0 0;
+    max-width: 600px;
+}
+
+/* Flexbox solo para alinear los botones */
+.hero-text .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Panel de estadísticas: grid 2x2 */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; /* CORRECCIÓN MANUAL: Aumentado para mejor respiración */
+}
+
+.stat {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    background-color: var(--color-fog-white);
+    border: 1px solid #ececec;
+    border-radius: var(--radius-cards);
+    padding: 28px 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* CORRECCIÓN MANUAL: Agregada sombra al hover */
+.stat:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+.stat-number {
+    font-family: var(--font-signifier);
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -0.66px;
+    color: var(--color-ink-black);
+}
+.stat-label {
+    font-size: 14px;
+    color: var(--color-slate-gray);
+}
+
+/* ---------- PILLARS (grid de 3 columnas) ---------- */
+.pillars {
+    grid-area: pillars;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.pillars .card-neutral h2 {
+    font-size: 30px;
+    margin: 16px 0 12px;
+}
+.eyebrow {
+    font-size: 14px;
+    color: var(--color-ash-gray);
+}
+
+/* ---------- QUOTE (grid 2 columnas) ---------- */
+.quote {
+    grid-area: quote;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 80px;      
+    margin-bottom: 80px;
+}
+.quote h2 { margin-bottom: 0; }
+.quote p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* ---------- FOOTER (ocupa todo el ancho del grid) ---------- */
+.site-footer {
+    grid-area: footer;
+    align-self: end;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 32px max(20px, calc((100% - var(--page-max-width)) / 2));
+    background-color: var(--color-ink-black);
+    color: var(--color-smoke-gray);
+    font-size: 14px;
+}
+/* Flexbox solo para los enlaces del footer */
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+.footer-links a {
+    color: var(--color-paper-white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--color-smoke-gray); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 960px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 56px;
+    }
+    .pillars { grid-template-columns: 1fr; }
+    .quote   { grid-template-columns: 1fr; gap: 16px; }
+    h1 { font-size: 48px; }
+}
+
+@media (max-width: 600px) {
+    .site-header { grid-template-columns: 1fr; gap: 16px; }
+    .nav-links   { flex-wrap: wrap; margin-left: -15px; }
+    .site-footer { grid-template-columns: 1fr; }
+    .footer-links { flex-wrap: wrap; }
+    .hero-stats  { grid-template-columns: 1fr; }
+    h1 { font-size: 38px; }
+    h2 { font-size: 34px; }
+}

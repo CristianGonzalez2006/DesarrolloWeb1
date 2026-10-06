@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidencias Reto IA - Cristian González</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fdf5f4;
+            color: #1c1c1e;
+            display: flex; flex-direction: column; align-items: center; padding: 50px 20px;
+        }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .header p { color: #636366; font-size: 1.1rem; }
+        
+        .caja {
+            background: #ffffff;
+            width: 100%;
+            max-width: 750px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+        .caja h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1c1c1e;
+            border-bottom: 1px solid #f2f2f7;
+            padding-bottom: 12px;
+        }
+        .caja p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #3a3a3c;
+        }
+        .caja ul {
+            padding-left: 20px;
+            line-height: 1.6;
+            color: #3a3a3c;
+        }
+        .caja li { margin-bottom: 10px; }
+        
+        pre {
+            background: #1c1c1e;
+            color: #fdf5f4;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        code { font-family: Consolas, Monaco, monospace; }
+        
+        .btn-volver {
+            margin-top: 20px; display: inline-block; text-decoration: none;
+            background-color: #1c1c1e; color: #fae1dd; padding: 12px 24px;
+            border-radius: 999px; font-weight: bold; transition: transform 0.2s;
+        }
+        .btn-volver:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Evidencias: Reto IA</h1>
+        <p>Implementación de CSS Grid</p>
+    </div>
+
+    <div class="caja">
+        <h2>a) Instrucción enviada (Prompt) a Claude</h2>
+        <p><em>"Actúa como un desarrollador web experto. Necesito crear una nueva versión de la página de inicio (index.html) para mi proyecto universitario sobre la empresa Berkshire Hathaway.
+        Sigue estas instrucciones: 1. Conserva la temática corporativa, textos esenciales y los enlaces de navegación. 2. Mantén un diseño limpio usando tonos neutros. 3. Uso obligatorio de CSS Grid: La distribución principal de la página DEBE construirse utilizando display: grid. Usa Flexbox solo para alinear elementos internos. 4. Dame el código HTML y el CSS."</em></p>
+    </div>
+
+    <div class="caja">
+        <h2>b) Código originalmente generado (Fragmento CSS)</h2>
+        <p>La IA generó la estructura Grid básica y los estilos de las tarjetas, pero con valores estáticos y genéricos:</p>
+        <pre><code>/* Código original generado por la IA */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.stat {
+    transition: transform 0.3s ease;
+}
+.stat:hover { 
+    transform: translateY(-4px); 
+}
+.site-footer span {
+    content: "© Berkshire Hathaway Inc. - University project";
+}</code></pre>
+    </div>
+
+    <div class="caja">
+        <h2>c) Código final después de las correcciones (Fragmento CSS)</h2>
+        <p>Código tras la revisión manual para mejorar el diseño y personalizar el proyecto:</p>
+        <pre><code>/* Código final corregido manualmente */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; /* Modificado */
+}
+.stat {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Modificado */
+}
+.stat:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06); /* Añadido */
+}
+.site-footer span {
+    content: "© Berkshire Hathaway Inc. — Proyecto por Cristian Xavier González Mejía"; /* Modificado */
+}</code></pre>
+    </div>
+
+    <div class="caja">
+        <h2>d) Lista de cambios efectuados</h2>
+        <ul>
+            <li><strong>Mejora visual (Hover):</strong> Añadí la propiedad <code>box-shadow</code> al estado <code>:hover</code> de las tarjetas de estadísticas para darles profundidad, ya que la IA solo había incluido un desplazamiento vertical.</li>
+            <li><strong>Espaciado (Gap):</strong> Aumenté el <code>gap</code> en <code>.hero-stats</code> de 16px a 24px porque el diseño generado por la IA se veía muy apretado y requería mejor uso del espacio en blanco.</li>
+            <li><strong>Personalización:</strong> Cambié el texto genérico del <code>footer</code> para incluir mi nombre completo como autor del proyecto universitario.</li>
+        </ul>
+    </div>
+
+    <a href="../guia3.html" class="btn-volver">← Volver a la Guía 3</a>
+</body>
+</html>
