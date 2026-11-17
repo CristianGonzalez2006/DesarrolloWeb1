@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/api.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Consumo de RapidAPI con Fetch</title>
+</head>
+
+<body class="bg-light">
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="../index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="../img/js.png" class="bi me-2" width="48" height="48" alt="JS Logo">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="../pages/ejemplo1.html" class="nav-link px-2 text-white">Ejemplo 1</a></li>
+                    <li><a href="../pages/ejemplo2.html" class="nav-link px-2 text-white">Ejemplo 2</a></li>
+                    <li><a href="../pages/ejemplo3.html" class="nav-link px-2 text-white">Ejemplo 3</a></li>
+                    <li><a href="../pages/ejemplo4.html" class="nav-link px-2 text-white">Ejemplo 4</a></li>
+                    <li><a href="../pages/ejemplo5.html" class="nav-link px-2 text-warning fw-bold">Ejercicio API</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold">Catálogo de Videojuegos Free-to-Play</h1>
+            <p class="lead text-muted">Consumo de RapidAPI mediante Fetch API y <code>async/await</code></p>
+        </div>
+
+        <!-- Filtros para consultar el endpoint de listado -->
+        <div class="row g-3 mb-4 justify-content-center">
+            <div class="col-md-4">
+                <label for="idFiltroCategoria" class="form-label fw-bold">Filtrar por género:</label>
+                <select id="idFiltroCategoria" class="form-select">
+                    <option value="">Todos los géneros</option>
+                    <option value="shooter">Shooter</option>
+                    <option value="mmorpg">MMORPG</option>
+                    <option value="strategy">Estrategia</option>
+                    <option value="moba">MOBA</option>
+                    <option value="racing">Carreras</option>
+                    <option value="sports">Deportes</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="idBuscador" class="form-label fw-bold">Buscar por título:</label>
+                <input type="text" id="idBuscador" class="form-control" placeholder="Ej. Valorant, Overwatch...">
+            </div>
+        </div>
+
+        <!-- Mensaje de estado / carga / error -->
+        <div id="idEstadoCarga" class="text-center my-4"></div>
+
+        <!-- Contenedor dinámico del listado de recursos -->
+        <div id="idContenedorJuegos" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+    </main>
+
+    <!-- Modal de Bootstrap para mostrar el detalle del recurso seleccionado -->
+    <div class="modal fade" id="idModalDetalle" tabindex="-1" aria-labelledby="idModalTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="idModalTitulo">Detalle del juego</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="idModalCuerpo"></div>
+                <div class="modal-footer">
+                    <a id="idBtnJugar" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ir al sitio oficial</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ejemplo5.js" defer></script>
+</body>
+
+</html>
